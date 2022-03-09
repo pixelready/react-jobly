@@ -8,56 +8,77 @@
                 -State: 
                 -Props:
                 +no error handling, but there will be a redirect (bogus /jkjkkjk will take you back to /home)
+                +present across pages/endpoints
 
             <Routes />
-                -State: 
-                -Props:
+                -State: none
+                -Props: none
+                -parses URL params to match endpoints
 
                 <Home />
-                    -State: 
-                    -Props:
+                    -State: none
+                    -Props: none
+
+                    <HomePage />
+                        -State: none
+                        -Props: none
+                        -purely presentational
 
                 <Companies />
                     -State: 
-                    -Props:
+                        +[companies, setCompanies] 
+                            #will have key that is the company id as it exists in db, from axios req
+                    -Props: 
+                        +handleSearch, fn passed to SearchBar, 
+                            takes search params and makes axios req to API, 
+                            parses JSON and passes list(arr) of matching companies(objs) to the CompanyList 
 
                     <SearchBar />
-                        -State: 
-                        -Props:
+                        -State: [formData, setFormData]
+                        -Props: handleSearch
+                        -a simple form, grabs the query someone passed in and calls handleSearch to make axios req  
+                            for matching companies to display, updates companies state in Companies
 
                     <CompanyList />
-                        -State: 
-                        -Props:
+                        -State: none
+                        -Props: companies, a list of matching companies to display
 
                         <CompanyCard />
-                            -State: 
-                            -Props:
+                            -State: none
+                            -Props: company, data on a single company to render into a card
 
                 <CompanyDetail />
-                    -State: 
-                    -Props:
+                    -State: [currCo, setCurrCo] (currCo = {name, desc, jobs = [{job1}, {job2}, ...])
+                    -Props: (uses URL param)
 
-                    <CompanyDetailCard />
+                    <CompanyJobList />
                         -State: 
-                        -Props:
+                        -Props: jobs 
 
-                    <JobCard />
-                        -State: 
-                        -Props:
+                        <CompanyJobCard />
+                            -State: 
+                            -Props: job
                 <Jobs />
                     -State: 
-                    -Props:
+                        +[jobs, setJobs] 
+                            #will have key that is the job id as it exists in db, from axios req
+                    -Props: 
+                        +handleSearch, fn passed to SearchBar, 
+                            takes search params and makes axios req to API, 
+                            parses JSON and passes list(arr) of matching jobs(objs) to the JobList 
 
                     <SearchBar />
-                        -State: 
-                        -Props:
+                        -State: [formData, setFormData]
+                        -Props: handleSearch
+                        -a simple form, grabs the query someone passed in and calls handleSearch to make axios req  
+                            for matching jobs to display, updates jobs state in Jobs
 
                     <JobList />
                         -State: 
-                        -Props:
+                        -Props: jobs, a list of matching jobs to display
 
                         <JobCard />
                             -State: 
-                            -Props:
+                            -Props: job, data on a single job to render into a card
 
         
