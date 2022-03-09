@@ -1,0 +1,20 @@
+
+
+<App />
+    <Jobly />
+        <Nav />
+        <Routes />
+            <Home />
+            <Companies />
+                <SearchBar />
+                <CompanyList />
+                    <CompanyCard />
+            <CompanyDetail />
+                <CompanyDetailCard />
+                <JobCard />
+            <Jobs />
+                <SearchBar />
+                <JobList />
+                    <JobCard />
+
+        
