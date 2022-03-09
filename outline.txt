@@ -2,22 +2,62 @@
 
 <App />
     <Jobly />
-        - State: 
+        - State: what page you're on
         - Props: 
+            <Nav />
+                -State: 
+                -Props:
+                +no error handling, but there will be a redirect (bogus /jkjkkjk will take you back to /home)
 
-        <Nav />
-        <Routes />
-            <Home />
-            <Companies />
-                <SearchBar />
-                <CompanyList />
-                    <CompanyCard />
-            <CompanyDetail />
-                <CompanyDetailCard />
-                <JobCard />
-            <Jobs />
-                <SearchBar />
-                <JobList />
+            <Routes />
+                -State: 
+                -Props:
+
+                <Home />
+                    -State: 
+                    -Props:
+
+                <Companies />
+                    -State: 
+                    -Props:
+
+                    <SearchBar />
+                        -State: 
+                        -Props:
+
+                    <CompanyList />
+                        -State: 
+                        -Props:
+
+                        <CompanyCard />
+                            -State: 
+                            -Props:
+
+                <CompanyDetail />
+                    -State: 
+                    -Props:
+
+                    <CompanyDetailCard />
+                        -State: 
+                        -Props:
+
                     <JobCard />
+                        -State: 
+                        -Props:
+                <Jobs />
+                    -State: 
+                    -Props:
+
+                    <SearchBar />
+                        -State: 
+                        -Props:
+
+                    <JobList />
+                        -State: 
+                        -Props:
+
+                        <JobCard />
+                            -State: 
+                            -Props:
 
         
