@@ -22,16 +22,12 @@
                 - Props: none
                 - parses URL params to match endpoints and output page components
 
-                <Home />
-                    - State: none
-                    - Props: none
-
-                    <HomePage />
+                <HomePage />
                         - State: none
                         - Props: none
                         - purely presentational
 
-                <Companies />
+                <CompanyList />
                     - Requests list of all companies on load, handles search callback to update list
                     - State: 
                         + [companies, setCompanies] 
@@ -47,11 +43,11 @@
                         - a simple form, grabs the query someone passed in and calls handleSearch to make axios req  
                             for matching companies to display, updates companies state in Companies
 
-                    <CompanyList />
+                    <CompanyCardList />
                         - Displays list of company cards
                         - State: none
                         - Props: companies, a list of matching companies to display
-
+            
                         <CompanyCard />
                         - Displays company detail as a card
                             - State: none
@@ -62,12 +58,12 @@
                     - State: [currCo, setCurrCo] (currCo = {name, desc, jobs = [{job1}, {job2}, ...])
                     - Props: (uses URL param)
 
-                    <CompanyJobList />
+                    <JobCardList />
                     - Displays the list of job cards for the company
                         - State: none
                         - Props: jobs 
 
-                        <CompanyJobCard />
+                        <JobCard />
                         - Displays details of job for the company
                             - State: none
                             - Props: job
@@ -87,7 +83,7 @@
                         - a simple form, grabs the query someone passed in and calls handleSearch to make axios req  
                             for matching jobs to display, updates jobs state in Jobs
 
-                    <JobList />
+                    <JobCardList />
                         - Displays the list of job cards
                         - State: none
                         - Props: jobs, a list of matching jobs to display
