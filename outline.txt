@@ -2,6 +2,9 @@
 
 <App />
     <Jobly />
+        - State: 
+        - Props: 
+
         <Nav />
         <Routes />
             <Home />
