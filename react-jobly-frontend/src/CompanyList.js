@@ -10,7 +10,7 @@ import SearchBar from "./SearchBar.js";
  * 
  * Props: none
  * State: [companies, setCompanies] 
- *   # will have key that is the company id as it exists in db, from axios req
+ * 
  *   
  * Routes -> CompanyList -> {SearchBar, CompanyCardList}
  */
@@ -36,19 +36,20 @@ function CompanyList(){
         return <h1>Loading...</h1>
     };
 
-    async function handleSearch(searchData){
-        const companiesResponse = await JoblyApi.getCompanies(searchData.query);
+    async function handleSearch({query}){
+        const companiesResponse = await JoblyApi.getCompanies(query);
         setCompanies(companies => companiesResponse);
     }
 
     return (
         <div>
-            {companies !== null && 
+            {companies.length > 0 &&
             <div>
                 <SearchBar handleSearch={handleSearch }/>
                 <CompanyCardList companies={companies} />
             </div>
             }
+            {} //TODO: add empty list state
         </div>
         
     );

@@ -8,6 +8,8 @@ import {NavLink} from "react-router-dom"
  * 
  * Props: none
  * State: none
+ * 
+ * App -> Nav
  */
 
 function Nav (){

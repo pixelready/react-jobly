@@ -5,6 +5,8 @@ import { BrowserRouter } from "react-router-dom";
 
 /** App component
  * Renders <Nav /> and <Routes />
+ * 
+ * App -> {Nav, Routes}
  */
 function App() {
   console.log("App");

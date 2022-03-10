@@ -12,6 +12,8 @@ import Home from "./Home";
  * 
  * Props: none
  * State: none
+ * 
+ * App -> Routes
  */
 
 function Routes () {

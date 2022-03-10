@@ -43,8 +43,14 @@ function SearchBar({handleSearch}){
     
     return (
         <form onSubmit={handleSubmit} className="SearchBar">
-            <input name="query" id="query" type="text" placeholder="Enter search term" onChange={handleChange}></input>
-            <button >Submit</button>
+            <input 
+                name="query"
+                id="query"
+                type="text"
+                placeholder="Enter search term"
+                onChange={handleChange}
+            />
+            <button type="submit">Submit</button>
         </form>
     );
 }
