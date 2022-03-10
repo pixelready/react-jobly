@@ -1,5 +1,15 @@
 import JobCard from "./JobCard";
 
+/**JobCardList Component
+ * 
+ * Displays list of job cards
+ * 
+ * State: none
+ * Props: jobs, a list of matching jobs to display
+ * 
+ * JobCardList -> JobCard
+ */
+
 function JobCardList({jobs}){
     return (
         <div>

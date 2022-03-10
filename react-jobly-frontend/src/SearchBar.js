@@ -8,6 +8,12 @@ import {useState} from "react";
  * for matching jobs to display, 
  * updates jobs state in Jobs
  * 
+ * Props:
+ * - handleSearch: a fn passed from parent to fire on submit (handleSubmit)
+ * State:
+ * - [formData, setFormData]: tracks changes to form inputs
+ *  
+ *  {CompanyList, JobList} -> SearchBar 
  */
 
 

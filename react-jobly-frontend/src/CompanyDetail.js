@@ -3,9 +3,13 @@ import { useParams } from "react-router-dom";
 import JoblyApi from "./api";
 import JobCardList from "./JobCardList";
 
-/**
+/** CompanyDetail Component: renders a company's name, description, and jobs
+ * 
+ * Props: none
+ * State: [company, setCompany]
  * 
  * 
+ *  CompanyList -> CompanyDetail 
  */
 function CompanyDetail(){
     const [company, setCompany] = useState(null);

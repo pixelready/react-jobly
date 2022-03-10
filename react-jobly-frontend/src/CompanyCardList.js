@@ -1,7 +1,5 @@
 import CompanyCard from "./CompanyCard";
 
-
-
 /**CompanyCardList Component
  * 
  * Displays list of company cards
@@ -9,6 +7,7 @@ import CompanyCard from "./CompanyCard";
  * State: none
  * Props: companies, a list of matching companies to display
  * 
+ * CompanyList -> CompanyCardList -> CompanyCard
  */
 
 function CompanyCardList({companies}){

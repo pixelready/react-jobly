@@ -12,8 +12,9 @@ import SearchBar from "./SearchBar";
     takes search params and makes axios req to API, 
     parses JSON and passes list(arr) of matching jobs(objs) to the JobList 
  * State: [jobs, setJobs] 
-    # will have key that is the job id as it exists in db, from axios req
-    Routes -> JobList -> {SearchBar, JobCardList}
+ *   # will have key that is the job id as it exists in db, from axios req
+ *    
+ *   Routes -> JobList -> {SearchBar, JobCardList}
  */
 
 function JobList(){

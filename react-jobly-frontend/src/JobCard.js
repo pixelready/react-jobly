@@ -1,3 +1,12 @@
+
+/** JobCard Component: renders a job's details in a card
+ * 
+ * Props: job, an obj to extract job data from
+ * State: none
+ * 
+ * JobCardList -> JobCard
+ */
+
 function JobCard({job}){
     return (
         <li className="JobCard">
