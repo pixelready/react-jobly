@@ -11,7 +11,7 @@ import CompanyCard from "./CompanyCard";
  * 
  */
 
-function CompanyCardList(companies){
+function CompanyCardList({companies}){
     console.log("CompanyCardList, companies: ", companies);
 
 

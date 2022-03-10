@@ -1,21 +1,40 @@
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import JoblyApi from "./api";
 
 /**
  * 
- * @returns 
+ * 
  */
 function CompanyDetail(){
-
-    console.log("CompanyDetail");
-
+    const [company, setCompany] = useState(null);
     const params = useParams();
 
+    console.log("CompanyDetail","state:", company, "params:", params);
+
+    useEffect(
+        function getCompanyDetailOnLoad(){
+            async function getCompanyDetail(){
+                const jobsResponse = await JoblyApi.getCompany(params.handle);
+                setCompany(jobs => jobsResponse);
+            }
+            getCompanyDetail();
+        },
+        [params.handle]
+    );
+
+    if (company === null){
+        return <h1>Loading...</h1>
+    };
+
     return (
-        <p>Welcome to {params.handle} IncorPEARated, creators of Pear Programming</p>
+        <div>
+            <p>Welcome to 😈 {company.name}</p>
+            <p>{company.description}</p>
+            <jobCardList jobs={company.jobs} />
+        </div>
     );
 }
 
 
 export default CompanyDetail;
-
-//TODO: add docstring

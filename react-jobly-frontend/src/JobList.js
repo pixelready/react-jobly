@@ -1,5 +1,6 @@
 import {useState, useEffect} from "react";
 import JoblyApi from "./api.js";
+import JobCardList from "./JobCardList";
 
 /** JobList Component
  * 
@@ -37,9 +38,7 @@ function JobList(){
     return (
         <div>
             {jobs !== null && 
-            <div>
-                {jobs.map(job => <JobCard key={job.id} company={job} />)}
-            </div>
+                <JobCardList jobs={jobs} />
             }
         </div>
     )
