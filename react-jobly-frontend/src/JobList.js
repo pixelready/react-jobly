@@ -13,6 +13,7 @@ import SearchBar from "./SearchBar";
     parses JSON and passes list(arr) of matching jobs(objs) to the JobList 
  * State: [jobs, setJobs] 
     # will have key that is the job id as it exists in db, from axios req
+    Routes -> JobList -> {SearchBar, JobCardList}
  */
 
 function JobList(){
@@ -36,11 +37,16 @@ function JobList(){
         return <h1>Loading...</h1>
     };
 
+    async function handleSearch(searchData){
+        const jobResponse = await JoblyApi.getJobs(searchData.query);
+        setJobs(jobs => jobResponse);
+    }
+
     return (
         <div className="JobList">
             {jobs !== null && 
                 <div>
-                    <SearchBar handleSearch={}/>
+                    <SearchBar handleSearch={handleSearch}/>
                     <JobCardList jobs={jobs} />
                 </div>
             }

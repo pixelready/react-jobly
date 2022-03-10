@@ -1,6 +1,7 @@
 import {useState, useEffect} from "react";
 import JoblyApi from "./api.js";
 import CompanyCardList from "./CompanyCardList";
+import SearchBar from "./SearchBar.js";
 
 /** CompanyList Component
  * 
@@ -33,10 +34,15 @@ function CompanyList(){
         return <h1>Loading...</h1>
     };
 
+    function handleSearch(){
+        return; //TODO: finish handleSearch for companies
+    }
+
     return (
         <div>
             {companies !== null && 
             <div>
+                <SearchBar handleSearch={handleSearch }/>
                 <CompanyCardList companies={companies} />
             </div>
             }

@@ -11,11 +11,12 @@ import {useState} from "react";
  */
 
 
-function SearchBar(handleSearch){
+function SearchBar({handleSearch}){
     console.log("SearchBar reporting for duty!");
 
-    const initialFormData = {};
-    //REVIEW: initial form data choice
+    const initialFormData = {
+        query: ""
+    };
 
     const [formData, setFormData] = useState(initialFormData);
 
@@ -35,9 +36,9 @@ function SearchBar(handleSearch){
 
     
     return (
-        <form className="SearchBar">
-            <input type="text" placeholder="Enter search term" onChange={handleChange}></input>
-            <button onClick={handleSubmit}>Submit</button>
+        <form onSubmit={handleSubmit} className="SearchBar">
+            <input name="query" id="query" type="text" placeholder="Enter search term" onChange={handleChange}></input>
+            <button >Submit</button>
         </form>
     );
 }
