@@ -38,8 +38,7 @@ class JoblyApi {
 
   // Individual API routes
 
-  /** Get a list of all companies*/
-
+  /** Get a list of all companies */
   static async getCompanies(searchData) {
     let res = await this.request("companies", searchData);
     
@@ -74,3 +73,5 @@ class JoblyApi {
 
 
 }
+
+export default JoblyApi;

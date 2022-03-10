@@ -4,6 +4,7 @@ import { Redirect, Switch, Route } from "react-router-dom";
 import CompanyDetail from "./CompanyDetail";
 import CompanyList from "./CompanyList";
 import JobList from "./JobList";
+import Home from "./Home";
 
 /** Routes Component
  * 
@@ -29,7 +30,7 @@ function Routes () {
                     <CompanyDetail />
                 </Route>
                 <Route exact path="/">
-                    <p>Home sweet 127.0.0.1</p>
+                    <Home />
                 </Route>
                 <Redirect to="/" />
             </Switch>
@@ -37,6 +38,5 @@ function Routes () {
     );
 }
 
-//TODO make home component
 
 export default Routes;

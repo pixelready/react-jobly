@@ -1,3 +1,6 @@
+import CompanyCard from "./CompanyCard";
+import {useState, useEffect} from "react";
+import JoblyApi from "./api.js";
 
 /** CompanyList Component
  * 
@@ -10,12 +13,36 @@
  */
 
 function CompanyList(){
+    
+    const [companies, setCompanies] = useState(null);
 
-    console.log("CompanyList");
+    console.log("CompanyList", "State:", companies);
+
+    useEffect(
+        function getAllCompaniesOnLoad(){
+            async function getAllCompanies(){
+                const companiesResponse = await JoblyApi.getCompanies();
+                setCompanies(companies => companiesResponse);
+            }
+            getAllCompanies();
+        },
+        []
+    );
+
+    if (!companies){
+        return <h1>Loading...</h1>
+    };
 
     return (
-        <p>Misery loves companies</p>
-    )
+        <div>
+            {companies !== null && 
+            <div>
+                {companies.map(c => <CompanyCard key={c.handle} company={c} />)}
+            </div>
+            }
+        </div>
+        
+    );
 }
 
 
