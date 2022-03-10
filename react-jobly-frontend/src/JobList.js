@@ -1,6 +1,7 @@
 import {useState, useEffect} from "react";
 import JoblyApi from "./api.js";
 import JobCardList from "./JobCardList";
+import SearchBar from "./SearchBar";
 
 /** JobList Component
  * 
@@ -36,9 +37,12 @@ function JobList(){
     };
 
     return (
-        <div>
+        <div className="JobList">
             {jobs !== null && 
-                <JobCardList jobs={jobs} />
+                <div>
+                    <SearchBar handleSearch={}/>
+                    <JobCardList jobs={jobs} />
+                </div>
             }
         </div>
     )
