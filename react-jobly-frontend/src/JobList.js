@@ -1,4 +1,5 @@
-
+import {useState, useEffect} from "react";
+import JoblyApi from "./api.js";
 
 /** JobList Component
  * 
@@ -13,11 +14,34 @@
  */
 
 function JobList(){
+
+    const [jobs, setJobs] = useState(null);
     
     console.log("JobList");
 
+    useEffect(
+        function getAllJobsOnLoad(){
+            async function getAllJobs(){
+                const jobsResponse = await JoblyApi.getJobs();
+                setJobs(jobs => jobsResponse);
+            }
+            getAllJobs();
+        },
+        []
+    );
+
+    if (jobs === null){
+        return <h1>Loading...</h1>
+    };
+
     return (
-        <p>I'm lookin at jobs dude</p>
+        <div>
+            {jobs !== null && 
+            <div>
+                {jobs.map(job => <JobCard key={job.id} company={job} />)}
+            </div>
+            }
+        </div>
     )
 }
 

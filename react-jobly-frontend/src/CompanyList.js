@@ -1,6 +1,6 @@
-import CompanyCard from "./CompanyCard";
 import {useState, useEffect} from "react";
 import JoblyApi from "./api.js";
+import CompanyCardList from "./CompanyCardList";
 
 /** CompanyList Component
  * 
@@ -29,7 +29,7 @@ function CompanyList(){
         []
     );
 
-    if (!companies){
+    if (companies === null){
         return <h1>Loading...</h1>
     };
 
@@ -37,7 +37,7 @@ function CompanyList(){
         <div>
             {companies !== null && 
             <div>
-                {companies.map(c => <CompanyCard key={c.handle} company={c} />)}
+                <CompanyCardList companies={companies} />
             </div>
             }
         </div>
