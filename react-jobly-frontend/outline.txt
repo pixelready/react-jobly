@@ -62,7 +62,7 @@
                 - Displays details of job for the company
                     - State: none
                     - Props: job
-        <Jobs />
+        <JobList />
             - Requests list of all jobs on load, handles search callback to update list
             - State: 
                 + [jobs, setJobs] 
