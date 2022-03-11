@@ -1,5 +1,5 @@
 import axios from "axios";
-import jwt_decode from "jwt-decode"
+import jwt_decode from "jwt-decode";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 let userToken = "";
@@ -63,7 +63,6 @@ class JoblyApi {
     return res.jobs;
   }
 
-
   /** Get details on a job by title */
 
   static async getJob(id) {
@@ -78,6 +77,13 @@ class JoblyApi {
     userToken = res.token;
     let username = jwt_decode(userToken).username;
     return username;
+  }
+
+  /** Get a user's data */
+
+  static async getUser(username){
+    let user = await this.request(`users/${username}`);
+    return user;
   }
 
 }

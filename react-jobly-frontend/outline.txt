@@ -3,7 +3,7 @@
 <App />
     - State: [currUser, setCurrUser] = useState()
         + user obj has application property, an array of job IDs
-        + let's not user the user isAdmin property 
+        + let's not use the user isAdmin property 
     - Props: none
     - Renders Jobly
     - state will be passed to children as a context
