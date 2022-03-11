@@ -9,7 +9,7 @@ import {useContext} from "react";
  * Routes -> Home
  */
 
-
+//REVIEW: is there a cleaner way to call user context so we don't have to do user.
 function Home() {
     const {user} =  useContext(UserContext);
     console.log(user);
