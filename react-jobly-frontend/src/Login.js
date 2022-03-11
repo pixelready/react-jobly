@@ -1,7 +1,13 @@
 import {useState} from "react";
 
 function Login({login}) {
-    const [formData, setFormData] = useState({username:"", password:""});
+    console.log("in the login component! login = ", login);
+
+    const initialFormData = {username:"", password:""};
+    const [formData, setFormData] = useState(initialFormData);
+
+
+    //REVIEW: THIS CONTROLLED COMPONENT PATTERN MAN!!
 
     function handleChange (evt){
         const {name, value} = evt.target;
@@ -11,8 +17,15 @@ function Login({login}) {
         }));
     }
 
+    function handleSubmit (evt){
+       evt.preventDefault();
+       login(formData);
+       setFormData(initialFormData);
+    }
+    //remember to prevent default!! and reset form values
+
     return (
-        <form onSubmit={login}>
+        <form onSubmit={handleSubmit}>
             <label htmlFor="username">Username</label>
             <input type="text" name="username" id="username" onChange={handleChange} value={formData.username} />
             <label htmlFor="password">Password</label>

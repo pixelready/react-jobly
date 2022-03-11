@@ -23,8 +23,11 @@ function App() {
   async function login(formData){
     //take the formData and pass into JoblyApi.loginUser, (returns username)
     const username = await JoblyApi.loginUser(formData);
+    console.log("username = ", username);
     //await the response, get username
     const user = await JoblyApi.getUser(username);
+    console.log("user = ", user);
+
     //make second req, calling getUser (using username) to get the user data obj
     setCurrUser(currUser => {return{...currUser, ...user, isLoggedIn:true}});
     //update currUser state
@@ -36,11 +39,10 @@ function App() {
     setCurrUser(currUser => {return{...currUser, ...user, isLoggedIn:true}});
   }
 
-  //TODO: define login callback function to pass to login page, also make one
   return (
     <div className="App">
       <BrowserRouter>
-        <UserContext.Provider value={{user: currUser}}>
+        <UserContext.Provider value={{currUser: currUser}}>
             <Nav />
             <Routes login={login} register={register} />
         </UserContext.Provider>

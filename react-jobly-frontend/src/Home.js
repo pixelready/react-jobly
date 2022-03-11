@@ -14,8 +14,10 @@ function Home() {
     const {user} =  useContext(UserContext);
     console.log(user);
     return (
-        <p>Sup {user.firstName} I am the home page. How you like me now?</p>
+        <p>Sup {user.currUser.firstName} I am the home page. How you like me now?</p>
     )
 }
+
+//TODO: remember with UserContext the currUser obj is stored in the context obj as the value of the key "user"
 
 export default Home;

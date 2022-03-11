@@ -37,6 +37,7 @@ function Routes ({login, register}) {
                     <Home />
                 </Route>
                 <Route exact path="/login">
+                    {/* TODO: after successful login, redirect to /companies */}
                     <Login login={login} />
                 </Route>
                 <Route exact path="/register">

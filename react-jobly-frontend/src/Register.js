@@ -1,14 +1,19 @@
 import {useState} from "react";
 
 function Register({register}) {
-    
-    const [formData, setFormData] = useState({
+    console.log("in the register component! register = ", register);
+
+    const initialFormData = {
         username:"",
         password:"",
         firstName: "",
         lastName:"",
         email:""
-    });
+    };
+    
+    const [formData, setFormData] = useState(initialFormData);
+
+    //REVIEW: THIS CONTROLLED COMPONENT PATTERN MAN!!
 
     function handleChange (evt){
         const {name, value} = evt.target;
@@ -18,8 +23,14 @@ function Register({register}) {
         }));
     }
 
+    function handleSubmit (evt){
+       evt.preventDefault();
+       register(formData);
+       setFormData(initialFormData);
+    }
+
     return (
-        <form onSubmit={() => register(formData)}>
+        <form onSubmit={handleSubmit}>
             <label htmlFor="username">Username</label>
             <input type="text" name="username" id="username" onChange={handleChange} value={formData.username} />
             <label htmlFor="password">Password</label>

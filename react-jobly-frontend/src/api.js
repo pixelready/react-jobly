@@ -73,16 +73,28 @@ class JoblyApi {
   /** Authenticate User to get user object and token */
 
   static async loginUser(loginFormData){
+    console.log("in the loginUser method! loginFormData = ", loginFormData);
+
     let res = await this.request('auth/token', loginFormData, 'post');
     userToken = res.token;
+    console.log("in the loginUser method! res = ", res);
+
     let username = jwt_decode(userToken).username;
+    console.log("in the loginUser method! username = ", username);
+
     return username;
   }
 
   static async registerUser(registerFormData){
+    console.log("in the registerUser method! registerFormData = ", registerFormData);
+
     let res = await this.request('auth/register', registerFormData, 'post');
+    console.log("in the registerUser method! res = ", res);
+
     userToken = res.token;
     let username = jwt_decode(userToken).username;
+    console.log("in the registerUser method! username = ", username);
+
     return username;
   }
 
