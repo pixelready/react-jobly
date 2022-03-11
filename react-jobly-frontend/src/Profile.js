@@ -5,14 +5,13 @@ function Register({register}) {
     
     const {user} =  useContext(UserContext);
     const initialState = {
-        username:"",
-        password:"",
-        firstName: "",
-        lastName:"",
-        email:""
+        username:user.user.username,
+        firstName: user.user.firstName,
+        lastName: user.user.lastName,
+        email: user.user.email
     };
-    
-    const [formData, setFormData] = useState();
+
+    const [formData, setFormData] = useState(initialState);
 
     function handleChange (evt){
         const {name, value} = evt.target;
@@ -25,9 +24,7 @@ function Register({register}) {
     return (
         <form onSubmit={() => register(formData)}>
             <label htmlFor="username">Username</label>
-            <input type="text" name="username" id="username" onChange={handleChange} value={user.user.username} />
-            <label htmlFor="password">Password</label>
-            <input type="password" name="password" id="password" onChange={handleChange} value={formData.password} />
+            <input disabled type="text" name="username" id="username" onChange={handleChange} value={user.user.username} />
             <label htmlFor="firstName">First Name</label>
             <input type="firstName" name="firstName" id="firstName" onChange={handleChange} value={formData.firstName} />
             <label htmlFor="lastName">Last Name</label>

@@ -1,4 +1,4 @@
-import {useContext} from "react";
+import { useContext } from "react";
 import { Redirect, Switch, Route } from "react-router-dom"; 
 
 import CompanyDetail from "./CompanyDetail";
@@ -24,6 +24,7 @@ import Profile from "./Profile";
 function Routes ({login, register}) {
     console.log("Routes");
     const {user} =  useContext(UserContext);
+    console.log("useContext user: ", user);
 
     return (
         <div className="routes">

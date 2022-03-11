@@ -42,7 +42,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <UserContext.Provider value={{currUser: currUser}}>
+        <UserContext.Provider value={{user: currUser}}>
             <Nav />
             <Routes login={login} register={register} />
         </UserContext.Provider>

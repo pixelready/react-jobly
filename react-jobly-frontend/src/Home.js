@@ -14,7 +14,13 @@ function Home() {
     const {user} =  useContext(UserContext);
     console.log(user);
     return (
-        <p>Sup {user.currUser.firstName} I am the home page. How you like me now?</p>
+        <div>
+            <h1>Jobly</h1>
+            <p>All the jobs in one, convenient place.</p> 
+            {user.isLoggedIn === true &&
+                <h2>Welcome Back, {user.user.firstName}!</h2>
+            }
+        </div>
     )
 }
 
