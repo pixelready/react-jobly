@@ -10,6 +10,7 @@ import { BrowserRouter } from "react-router-dom";
  */
 function App() {
   console.log("App");
+  //TODO: define login callback function to pass to login page, also make one
   return (
     <div className="App">
       <BrowserRouter>

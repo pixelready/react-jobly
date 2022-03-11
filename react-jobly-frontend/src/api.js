@@ -1,6 +1,8 @@
 import axios from "axios";
+import jwt_decode from "jwt-decode"
 
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
+let userToken = "";
 
 /** API Class.
  *
@@ -14,15 +16,15 @@ class JoblyApi {
   // Remember, the backend needs to be authorized with a token
   // We're providing a token you can use to interact with the backend API
   // DON'T MODIFY THIS TOKEN
-  static token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZ" +
-    "SI6InRlc3R1c2VyIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTU5ODE1OTI1OX0." +
-    "FtrMwBQwe6Ue-glIFgz_Nf8XxRT2YecFCiSpYL0fCXc";
+  // static token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZ" +
+  //   "SI6InRlc3R1c2VyIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTU5ODE1OTI1OX0." +
+  //   "FtrMwBQwe6Ue-glIFgz_Nf8XxRT2YecFCiSpYL0fCXc";
 
   static async request(endpoint, data = {}, method = "get") {
     console.debug("API Call:", endpoint, data, method);
 
     const url = `${BASE_URL}/${endpoint}`;
-    const headers = { Authorization: `Bearer ${JoblyApi.token}` };
+    const headers = { Authorization: `Bearer ${userToken}` };
     const params = (method === "get")
         ? data
         : {};
@@ -69,12 +71,14 @@ class JoblyApi {
     return res.job;
   }
 
-  //TODO: loginAPI function, given a successful login, hand the token on this class instead of testToken
+  /** Authenticate User to get user object and token */
 
-
-
-
-
+  static async loginUser(loginFormData){
+    let res = await this.request('auth/token', loginFormData, 'post');
+    userToken = res.token;
+    let username = jwt_decode(userToken).username;
+    return username;
+  }
 
 }
 
