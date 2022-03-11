@@ -26,6 +26,12 @@ function Nav (){
             <NavLink exact to="/jobs">
                 Jobs
             </NavLink>
+            <NavLink exact to="/login">
+                Login
+            </NavLink>
+            <NavLink exact to="/register">
+                Register
+            </NavLink>
         </nav>
     )
 }

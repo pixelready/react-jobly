@@ -79,12 +79,21 @@ class JoblyApi {
     return username;
   }
 
+  static async registerUser(registerFormData){
+    let res = await this.request('auth/register', registerFormData, 'post');
+    userToken = res.token;
+    let username = jwt_decode(userToken).username;
+    return username;
+  }
+
   /** Get a user's data */
 
   static async getUser(username){
     let user = await this.request(`users/${username}`);
     return user;
   }
+
+  
 
 }
 

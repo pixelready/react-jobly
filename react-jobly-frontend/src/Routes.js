@@ -5,6 +5,8 @@ import CompanyDetail from "./CompanyDetail";
 import CompanyList from "./CompanyList";
 import JobList from "./JobList";
 import Home from "./Home";
+import Login from "./Login";
+import Register from "./Register";
 
 /** Routes Component
  * 
@@ -16,7 +18,7 @@ import Home from "./Home";
  * App -> Routes
  */
 
-function Routes () {
+function Routes ({login, register}) {
     console.log("Routes");
 
     return (
@@ -33,6 +35,12 @@ function Routes () {
                 </Route>
                 <Route exact path="/">
                     <Home />
+                </Route>
+                <Route exact path="/login">
+                    <Login login={login} />
+                </Route>
+                <Route exact path="/register">
+                    <Register register={register} />
                 </Route>
                 <Redirect to="/" />
             </Switch>

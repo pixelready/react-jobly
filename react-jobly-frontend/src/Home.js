@@ -1,3 +1,5 @@
+import UserContext from "./userContext";
+import {useContext} from "react";
 
 /** Home Component: renders Jobly homepage
  * 
@@ -9,8 +11,10 @@
 
 
 function Home() {
+    const {user} =  useContext(UserContext);
+    console.log(user);
     return (
-        <p>I am the home page. How you like me now?</p>
+        <p>Sup {user.firstName} I am the home page. How you like me now?</p>
     )
 }
 
