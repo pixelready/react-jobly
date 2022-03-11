@@ -9,6 +9,8 @@ import Login from "./Login";
 import Register from "./Register";
 import UserContext from "./userContext";
 import Profile from "./Profile";
+import Logout from "./Logout";
+
 
 
 /** Routes Component
@@ -21,27 +23,34 @@ import Profile from "./Profile";
  * App -> Routes
  */
 
-function Routes ({login, register}) {
+function Routes ({login, register, update, logout}) {
     console.log("Routes");
     const {user} =  useContext(UserContext);
-    console.log("useContext user: ", user);
+    console.log("Routes useContext user: ", user);
 
     return (
         <div className="routes">
             { user.isLoggedIn === false &&
                 <Switch>
-                     <Route exact path="/">
-                         <Home />
-                     </Route>
-                     <Route exact path="/login">
-                         <Login login={login} />
-                     </Route>
-                     <Route exact path="/register">
-                         <Register register={register} />
-                     </Route>
-                     <Redirect to="/login" />
-                 </Switch>
+                    <Route exact path="/">
+                        <Home />
+                    </Route>
+
+                    <Route exact path="/login">
+                        <Login login={login} />
+                    </Route>
+
+                    <Route exact path="/register">
+                        <Register register={register} />
+                    </Route>
+
+                    <Route exact path="/logout">
+                        <Redirect to="/" />
+                    </Route>
+                    <Redirect to="/login" />
+                </Switch>
             }
+
 
             { user.isLoggedIn === true &&
                 <Switch>
@@ -57,10 +66,13 @@ function Routes ({login, register}) {
                     <Route exact path="/">
                         <Home />
                     </Route>
-                    <Route>
-                        <Profile />
+                    <Route exact path="/profile">
+                         <Profile update={update} />
                     </Route>
-                    <Redirect to="/" />
+                    <Route exact path="/logout">
+                        <Logout logout={logout} />
+                    </Route>
+                    <Redirect to="/companies" />
                 </Switch>
             }
         </div>

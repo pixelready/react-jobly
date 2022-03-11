@@ -85,6 +85,7 @@ class JoblyApi {
     return username;
   }
 
+  /** Register a new user's data and get token */
   static async registerUser(registerFormData){
     console.log("in the registerUser method! registerFormData = ", registerFormData);
 
@@ -101,11 +102,23 @@ class JoblyApi {
   /** Get a user's data */
 
   static async getUser(username){
-    let user = await this.request(`users/${username}`);
+    const user = await this.request(`users/${username}`);
     return user;
   }
 
+  /** Update a user's profile */
   
+  static async updateUser(profileFormData){
+    const user = this.request(`users/${profileFormData.username}`, profileFormData, 'patch');
+    return user; 
+  }
+
+  /** Logout the current user */
+
+  static deleteUserToken(){
+    userToken = "";
+    return;
+  }
 
 }
 

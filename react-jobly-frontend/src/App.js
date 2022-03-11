@@ -39,12 +39,23 @@ function App() {
     setCurrUser(currUser => {return{...currUser, ...user, isLoggedIn:true}});
   }
 
+  async function update(formData){
+    const user = await JoblyApi.updateUser(formData);
+    setCurrUser(currUser => {return{...currUser, ...user, isLoggedIn: true}});
+  }
+
+  function logoutUser(){
+    JoblyApi.deleteUserToken();
+    setCurrUser(initialUserState);
+  }
+
+
   return (
     <div className="App">
       <BrowserRouter>
         <UserContext.Provider value={{user: currUser}}>
             <Nav />
-            <Routes login={login} register={register} />
+            <Routes login={login} register={register} update={update} logout={logoutUser}/>
         </UserContext.Provider>
       </BrowserRouter>
     </div>
