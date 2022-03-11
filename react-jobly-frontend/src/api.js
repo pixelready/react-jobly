@@ -69,6 +69,8 @@ class JoblyApi {
     return res.job;
   }
 
+  //TODO: loginAPI function, given a successful login, hand the token on this class instead of testToken
+
 
 
 

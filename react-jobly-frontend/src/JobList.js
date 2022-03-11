@@ -38,17 +38,21 @@ function JobList(){
         return <h1>Loading...</h1>
     };
 
-    async function handleSearch(searchData){
-        const jobResponse = await JoblyApi.getJobs(searchData.query);
+    async function handleSearch({query}){
+        const jobResponse = await JoblyApi.getJobs(query);
         setJobs(jobs => jobResponse);
     }
 
     return (
         <div className="JobList">
-            {jobs !== null && 
+            <SearchBar handleSearch={handleSearch}/>
+            {jobs.length > 0 ? 
                 <div>
-                    <SearchBar handleSearch={handleSearch}/>
                     <JobCardList jobs={jobs} />
+                </div>
+            : 
+                <div>
+                    Sorry, no results were found!
                 </div>
             }
         </div>

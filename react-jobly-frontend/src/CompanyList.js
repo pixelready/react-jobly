@@ -42,16 +42,18 @@ function CompanyList(){
     }
 
     return (
-        <div>
-            {companies.length > 0 &&
-            <div>
-                <SearchBar handleSearch={handleSearch }/>
-                <CompanyCardList companies={companies} />
-            </div>
+        <div className="CompanyList">
+            <SearchBar handleSearch={handleSearch}/>
+            {companies.length > 0 ? 
+                <div>
+                    <CompanyCardList companies={companies} />
+                </div>
+            : 
+                <div>
+                    Sorry, no results were found!
+                </div>
             }
-            {} //TODO: add empty list state
         </div>
-        
     );
 }
 

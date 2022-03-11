@@ -48,6 +48,7 @@ function SearchBar({handleSearch}){
                 id="query"
                 type="text"
                 placeholder="Enter search term"
+                value={formData.query}
                 onChange={handleChange}
             />
             <button type="submit">Submit</button>
